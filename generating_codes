@@ -1,0 +1,9 @@
+
+#generates all codes on n neurons; up to isomorphism
+def all_codes(n):
+    N = 2^n
+    codes = []
+    for k in range(1, N):
+        codes_k = list(hypergraphs.nauty(k, n, multiple_sets=False, vertex_min_degree=None, vertex_max_degree=None, set_max_size=None, set_min_size=None, regular=False, uniform=False, max_intersection=None, connected=False, debug=False, options=''))
+        codes = codes+codes_k
+    return codes
